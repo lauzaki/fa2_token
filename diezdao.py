@@ -1,4 +1,4 @@
-## hDAO batch FA2 version
+
 import smartpy as sp##
 ## ## Meta-Programming Configuration
 ##
