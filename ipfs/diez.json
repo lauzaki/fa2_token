@@ -1,0 +1,20 @@
+{"name":"diez DAO","symbol":"diezDAO","decimals":6,"shouldPreferSymbol":false,"thumbnailUri":"ipfs://QmW6G3xK1ssrpDBNuJ17wGzcjbK6dAF9Dj4bMr87Csokd9"}
+
+@sp.add_test(name="FA2_core)
+Def test():
+	#define a contract
+	c1 = FA2_core(...)
+	scenario = sp.test_scenario()
+	scenario += c1
+	#scenario += c1.myEntryPoint(...)
+	#scenario += c1.myEntryPoint(...)
+	#scenario += c1.myEntryPoint(...)
+	#scenario.verify(...)
+	#scenario.show(...)
+	#scenario.p(...)
+	#scenario.h1(...)
+
+@sp.add_test(name="FA2_administrator")
+Def test():
+
+
