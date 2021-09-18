@@ -2,4 +2,10 @@ metadata:
 https://ipfs.io/ipfs/QmXvuWe3oA8vbJ2g5ERKiECfkCPgYxuC2ZyK9QomtaCiKy
 
 contract granada
-KT1PAAC4jEsfZETyeAtrJtaf7FM2gpmf7qbF
+KT1L35XdWys5aZ8z1Sk7UjfSUX2dFzYTreQ2
+
+created a contract when doing the transaction?
+KT1L35XdWys5aZ8z1Sk7UjfSUX2dFzYTreQ2
+
+transaction
+ootKjdFVWqiK5eJik95ePF5Yto6M5mdNbmGcFzLhuu48Wk8gtG9
