@@ -1,4 +1,4 @@
-
+#diezDAO
 import smartpy as sp##
 ## ## Meta-Programming Configuration
 ##
@@ -523,7 +523,7 @@ class FA2_core(sp.Contract):
             sp.failwith(self.error_message.operators_unsupported())
 
     @sp.entry_point
-    def hDAO_batch(self, params):
+    def diezDAO_batch(self, params):
         sp.verify(sp.sender == self.data.administrator)
         sp.set_type(params, sp.TList(sp.TRecord(to_=sp.TAddress, amount=sp.TNat)))
         sp.for e in params:
@@ -667,15 +667,14 @@ def add_test(config, is_default = True):
         scenario.h1("FA2 Contract Name: Diez")
         scenario.table_of_contents()
         # sp.test_account generates ED25519 key-pairs deterministically:
-        admin = sp.test_account("Administrator")
         alice = sp.test_account("Alice")
         bob   = sp.test_account("Robert")
         # Let's display the accounts:
         scenario.h2("Accounts")
-        scenario.show([admin, alice, bob])
+        
         c1 = FA2(config = config,
-                 meta = sp.utils.metadata_of_url("https://ipfs.io/ipfs/QmbMLJ5EWZ9YV3gddxAJiWGUTK8UbeAVahEQ18NMCF2xHw"),
-                 admin = admin.address)
+                 meta = sp.utils.metadata_of_url("https://ipfs.io/ipfs/QmXvuWe3oA8vbJ2g5ERKiECfkCPgYxuC2ZyK9QomtaCiKy"),
+                 admin = sp.address("tz1dQXqXZ3Y5sgYwU9Aq9xRJPxEZNUwyE6ht"))
         scenario += c1
         if config.non_fungible:
             # TODO
@@ -689,7 +688,7 @@ def add_test(config, is_default = True):
         c1.mint(address = alice.address,
                             amount = 100,
                             token_info = tok0_md,
-                            token_id = 0).run(sender = admin)
+                            token_id = 0).run(sender = sp.address("tz1dQXqXZ3Y5sgYwU9Aq9xRJPxEZNUwyE6ht"))
         scenario.h2("Transfers Alice -> Bob")
         c1.transfer(
             [
@@ -732,7 +731,7 @@ def add_test(config, is_default = True):
         c1.mint(address = bob.address,
                             amount = 100,
                             token_info = tok1_md,
-                            token_id = 1).run(sender = admin)
+                            token_id = 1).run(sender = sp.address("tz1dQXqXZ3Y5sgYwU9Aq9xRJPxEZNUwyE6ht"))
         tok2_md = FA2.make_metadata(
             name = "The Token Number Three",
             decimals = 0,
@@ -740,7 +739,7 @@ def add_test(config, is_default = True):
         c1.mint(address = bob.address,
                             amount = 200,
                             token_info = tok2_md,
-                            token_id = 2).run(sender = admin)
+                            token_id = 2).run(sender = sp.address("tz1dQXqXZ3Y5sgYwU9Aq9xRJPxEZNUwyE6ht"))
         scenario.h3("Multi-token Transfer Bob -> Alice")
         c1.transfer(
             [
@@ -788,7 +787,7 @@ def add_test(config, is_default = True):
                                         sp.record(to_ = alice.address,
                                                   amount = 11,
                                                   token_id = 0)])
-            ]).run(sender = admin)
+            ]).run(sender = sp.address("tz1dQXqXZ3Y5sgYwU9Aq9xRJPxEZNUwyE6ht"))
         scenario.h3("Even Admin cannot transfer too much.")
         c1.transfer(
             [
@@ -797,7 +796,7 @@ def add_test(config, is_default = True):
                                         sp.record(to_ = bob.address,
                                                   amount = 1000,
                                                   token_id = 0)])
-            ]).run(sender = admin, valid = False)
+            ]).run(sender = sp.address("tz1dQXqXZ3Y5sgYwU9Aq9xRJPxEZNUwyE6ht"), valid = False)
         scenario.h3("Consumer Contract for Callback Calls.")
         consumer = View_consumer(c1)
         scenario += consumer

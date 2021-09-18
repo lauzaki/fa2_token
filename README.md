@@ -1,1 +1,5 @@
-https://ipfs.io/ipfs/QmbMLJ5EWZ9YV3gddxAJiWGUTK8UbeAVahEQ18NMCF2xHw
+metadata:
+https://ipfs.io/ipfs/QmXvuWe3oA8vbJ2g5ERKiECfkCPgYxuC2ZyK9QomtaCiKy
+
+contract granada
+KT1PAAC4jEsfZETyeAtrJtaf7FM2gpmf7qbF
